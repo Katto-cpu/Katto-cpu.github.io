@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html>
 <head>
     <title>Interactive Gallery</title>
@@ -6,24 +6,32 @@
         body {
             margin: 0;
             padding: 0;
-            background-color: beige;
+            background-image: url('https://i.imgur.com/O0V2shp.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
             overflow: hidden;
         }
 
 
         #welcome-text {
-            font-size: 5em;
-            font-family: 'RusticRoadway', cursive;
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             z-index: 2;
             text-align: center;
-            width: 50%;
+            width: 100%;
+            height: 100%;
             justify-content: center;
             animation: fadeIn 1.5s;
-            font-weight: bold;
+        }
+
+
+        #welcome-text img {
+            width: 100%;
+            height: auto;
         }
 
 
@@ -90,12 +98,23 @@
         }
 
 
+        .top-row {
+            top: 0;
+        }
+
+
+        .bottom-row {
+            bottom: 0;
+        }
+
+
         .gallery-image {
             width: 9%;
             height: auto;
             aspect-ratio: 1;
-            border: 2px solid black;
+            border: 5px solid #E1E118;
             object-fit: cover;
+            display: block;
         }
 
 
@@ -136,15 +155,14 @@
            left: 50%;
            transform: translate(-50%, -50%);
            font-size: 4em;
-           color: black;
+           color: white;
            transition: opacity 0.7s;
            z-index: 5;
            display: none;
            text-align: center;
-           font-family: 'RusticRoadway', cursive;
+           font-family: 'Times New Roman';
            font-weight: bold;
            pointer-events: none;
-           background-color: rgba(245, 245, 220, 0.8);
         }
         @keyframes fadeIn {
             0% {
@@ -171,7 +189,9 @@
     </style>
 </head>
 <body>
-    <div id="welcome-text">Welcome to <br> Oxford 22-25's <br> Photo Gallery</div>
+    <div id="welcome-text">
+        <img src="C:/Users/Admin/Downloads/462574553_1404726023835374_4950809947470156696_n.jpg" alt="Welcome Image">
+    </div>
     <div id="instructions">
         <h1>Instructions</h1>
         <p>Use arrow keys to move the character around</p>
@@ -183,22 +203,10 @@
 
 
     <div id="gallery">
-        <img id="character" src="https://drive.google.com/uc?export=view&id=1Iaww-GryMpqu-swUXvKd767JCGHeS2tl" alt="Moving Character">
-        <div class="gallery-row">
-            <img class="gallery-image" src="H:\Nguyen Duy Hung\Bòfỏd\10\IMG_0057.JPG" alt="Gallery Image">
-            <img class="gallery-image" src="H:\Nguyen Duy Hung\Bòfỏd\10\IMG_0071.JPG" alt="Gallery Image">
-            <img class="gallery-image" src="H:\Nguyen Duy Hung\Bòfỏd\10\IMG_0090.JPG" alt="Gallery Image">
-            <img class="gallery-image" src="H:\Nguyen Duy Hung\Bòfỏd\10\IMG20220912124126.jpg" alt="Gallery Image">
-            <img class="gallery-image" src="H:\Nguyen Duy Hung\Bòfỏd\10\IMG20220924141748.jpg" alt="Gallery Image">
-            <img class="gallery-image" src="H:\Nguyen Duy Hung\Bòfỏd\10\IMG20221020114222.jpg" alt="Gallery Image">
+        <img id="character" src="C:\Users\Admin\Downloads\Untitled131-4--unscreen.gif" alt="Moving Character">
+        <div class="gallery-row top-row">
         </div>
-        <div class="gallery-row">
-            <img class="gallery-image" src="gallery1_7.jpg" alt="Gallery Image">
-            <img class="gallery-image" src="gallery1_8.jpg" alt="Gallery Image">
-            <img class="gallery-image" src="gallery1_9.jpg" alt="Gallery Image">
-            <img class="gallery-image" src="gallery1_10.jpg" alt="Gallery Image">
-            <img class="gallery-image" src="gallery1_11.jpg" alt="Gallery Image">
-            <img class="gallery-image" src="gallery1_12.jpg" alt="Gallery Image">
+        <div class="gallery-row bottom-row">
         </div>
     </div>
 
@@ -224,12 +232,12 @@
             // After 2 seconds, fade out welcome text and show instructions
             setTimeout(() => {
                 welcomeText.style.animation = 'fadeOut 1s forwards'; // Add 'forwards' to maintain final state
-            }, 2000);
+            }, 5000);
             setTimeout(() => {
                 welcomeText.style.display = 'none';
                 instructions.style.display = 'flex';
                 instructions.style.animation = 'fadeIn 1s';
-            }, 3000);
+            }, 6500);
         });
         let currentGallery = 0;
         const totalGalleries = 5;
@@ -240,28 +248,46 @@
         };
         // Add this with your other constants
         const galleryNames = {
-            0: "Grade 10 - 2022",
-            1: "Grade 11 - 2023",
+            0: "Sú",
+            1: "Chúc bé ngủ ngon",
             2: "Grade 12 - 2024",
             3: "Ocean Gallery",
-            4: "City Gallery"
+            4: "Cô Linh yêu quý <3"
         };
 
 
         const galleryImages = {
             0: {
-                top: ['H:/Nguyen Duy Hung/Bòfỏd/10/IMG_0057.JPG',
-                      'H:/Nguyen Duy Hung/Bòfỏd/10/IMG_0071.JPG',
-                      'H:/Nguyen Duy Hung/Bòfỏd/10/IMG_0090.JPG',
-                      'H:/Nguyen Duy Hung/Bòfỏd/10/IMG20220912124126.jpg',
-                      'H:/Nguyen Duy Hung/Bòfỏd/10/IMG20220924141748.jpg',
-                      'H:/Nguyen Duy Hung/Bòfỏd/10/IMG20221020114222.jpg'  
+                top: ['https://i.imgur.com/ROzPYQ6.jpeg',
+                      'https://i.imgur.com/5jLfWMR.jpeg',
+                      'https://i.imgur.com/L6ARbzH.jpeg',
+                      'https://i.imgur.com/GVzsacp.jpeg',
+                      'https://i.imgur.com/fb3eFTl.jpeg',
+                      'https://i.imgur.com/FzCiOxR.jpeg'  
                 ],
-                bottom: ['gallery1_7.jpg', 'gallery1_8.jpg', 'gallery1_9.jpg', 'gallery1_10.jpg', 'gallery1_11.jpg', 'gallery1_12.jpg']
+                bottom: ['https://i.imgur.com/N7zmKpi.jpeg',
+                         'https://i.imgur.com/HbomH1y.jpeg',
+                         'https://i.imgur.com/yqIw5o3.jpeg',
+                         'https://i.imgur.com/pS8aK28.jpeg',
+                         'https://i.imgur.com/4buNfkJ.jpeg',
+                         'https://i.imgur.com/FdafB7R.jpeg'
+                        ]
             },
             1: {
-                top: ['H:/Nguyen Duy Hung/Bòfỏd/10/received_523757756501881.jpeg', 'gallery2_2.jpg', 'gallery2_3.jpg', 'gallery2_4.jpg', 'gallery2_5.jpg', 'gallery2_6.jpg'],
-                bottom: ['gallery2_7.jpg', 'gallery2_8.jpg', 'gallery2_9.jpg', 'gallery2_10.jpg', 'gallery2_11.jpg', 'gallery2_12.jpg']
+                top: ['https://i.imgur.com/51zJiQO.jpeg',
+                      'https://i.imgur.com/Sq0OGXj.jpeg',
+                      'https://i.imgur.com/yB8jT4S.jpeg',
+                      'https://i.imgur.com/0tpLRLv.jpeg',
+                      'https://i.imgur.com/9VZFuXB.jpeg',
+                      'https://i.imgur.com/x8XvR6O.jpeg'
+                ],
+                bottom: ['https://i.imgur.com/fguiDJL.jpeg',
+                         'https://i.imgur.com/tN7StVr.jpeg',
+                         'https://i.imgur.com/cGw5XiX.jpeg',
+                         'https://i.imgur.com/CliBsja.jpeg',
+                         'https://i.imgur.com/RI1moU6.jpeg',
+                         'https://i.imgur.com/RI1moU6.jpeg'
+                        ]
             },
             2: {
                 top: ['gallery3_1.jpg', 'gallery3_2.jpg', 'gallery3_3.jpg', 'gallery3_4.jpg', 'gallery3_5.jpg', 'gallery3_6.jpg'],
@@ -272,8 +298,20 @@
                 bottom: ['gallery4_7.jpg', 'gallery4_8.jpg', 'gallery4_9.jpg', 'gallery4_10.jpg', 'gallery4_11.jpg', 'gallery4_12.jpg']
             },
             4: {
-                top: ['gallery5_1.jpg', 'gallery5_2.jpg', 'gallery5_3.jpg', 'gallery5_4.jpg', 'gallery5_5.jpg', 'gallery5_6.jpg'],
-                bottom: ['gallery5_7.jpg', 'gallery5_8.jpg', 'gallery5_9.jpg', 'gallery5_10.jpg', 'gallery5_11.jpg', 'gallery5_12.jpg']
+                top: ['https://i.imgur.com/lYmZmiT.jpeg',
+                      'https://i.imgur.com/Lzbjyzk.jpeg',
+                      'https://i.imgur.com/PhKvxt3.jpeg',
+                      'https://i.imgur.com/9CRd7kb.jpeg',
+                      'https://i.imgur.com/0mlY4O6.jpeg',
+                      'https://i.imgur.com/IGXUqf5.jpeg'
+                ],
+                bottom: ['https://i.imgur.com/yu6hdYw.jpeg',
+                         'https://i.imgur.com/xa1e6dm.jpeg',
+                         'https://i.imgur.com/acnPpqR.jpeg',
+                         'https://i.imgur.com/H7YE1JR.jpeg',
+                         'https://i.imgur.com/DAllFZx.jpeg',
+                         'https://i.imgur.com/v7cqApq.jpeg'
+                        ]
             }
         };
 
@@ -281,6 +319,8 @@
         document.getElementById('startButton').addEventListener('click', () => {
             document.getElementById('instructions').style.display = 'none';
             document.getElementById('gallery').style.display = 'block';
+            const gallery = document.getElementById('gallery');
+            console.log('Gallery displayed, loading images....');
             loadGallery(currentGallery);
            
             // Show initial gallery name
@@ -333,10 +373,13 @@
 
 
         function loadGallery(galleryIndex) {
-            const topRow = document.querySelector('.gallery-row:first-child');
-            const bottomRow = document.querySelector('.gallery-row:last-child');
+            console.log('loadGallery called with galleryIndex:', galleryIndex);
+            const topRow = document.querySelector('.top-row');
+            const bottomRow = document.querySelector('.bottom-row');
             if (!topRow || !bottomRow) {
                 console.error('Gallery rows not found!');
+                console.log('Top row:', topRow);
+                console.log('Bottom row:', bottomRow);
                 return;
             }
 
@@ -465,6 +508,8 @@
     </script>
 </body>
 </html>
+
+
 
 
 
