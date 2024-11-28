@@ -1,5 +1,5 @@
 <!DOCTYPE html>
- <html>
+<html>
  <head>
     <title>Interactive Gallery</title>
     <style>
@@ -428,7 +428,7 @@
         document.getElementById('character').style.left = character.x + 'px';
         document.getElementById('character').style.top = character.y + 'px';
     </script>
- </body>
+  </body>
  </html>
 
 
