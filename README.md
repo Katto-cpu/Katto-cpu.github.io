@@ -1,5 +1,6 @@
+<!DOCTYPE html>
 <html>
- <head>
+<head>
     <title>Interactive Gallery</title>
     <style>
         body {
@@ -8,6 +9,7 @@
             background-color: beige;
             overflow: hidden;
         }
+
 
         #welcome-text {
             font-size: 5em;
@@ -24,8 +26,9 @@
             font-weight: bold;
         }
 
+
         #instructions {
-            position: position;
+            position: absolute;
             width: 100%;
             height: 100%;
             display: flex;
@@ -38,6 +41,7 @@
             animation: fadeIn 1s;
         }
 
+
         #startButton {
             padding: 15px 30px;
             font-size: 20px;
@@ -48,6 +52,7 @@
             transition: 0.4s ease;
         }
 
+
         #startButton:hover {
             background: #ffc773;
             box-shadow: 0 0 5px #ffc773,
@@ -56,12 +61,14 @@
                         0 0 150px #ffc773;
         }
 
+
         #gallery {
             display: none;
             width: 100vw;
             height: 100vh;
-            position: absolute;
+            position: relative;
         }
+
 
         .gallery-row {
             display: flex;
@@ -72,13 +79,16 @@
             position: absolute;
         }
 
+
         .gallery-row:first-child {
             top: 0;
         }
 
+
         .gallery-row:last-child {
             bottom: 0;
         }
+
 
         .gallery-image {
             width: 9%;
@@ -87,6 +97,7 @@
             border: 2px solid black;
             object-fit: cover;
         }
+
 
         #character {
             width: 100px;
@@ -98,6 +109,7 @@
             z-index: 1;
         }
 
+
         #fullscreen-view {
             display: none;
             position: fixed;
@@ -108,6 +120,7 @@
             background-color: rgba(0, 0, 0, 0.9);
             z-index: 3;
         }
+
 
         #fullscreen-image {
             max-width: 90%;
@@ -154,9 +167,10 @@
             src: url('C:/Users/Admin/Downloads/RusticRoadway.woff') format('woff');
         }
 
+
     </style>
- </head>
- <body>
+</head>
+<body>
     <div id="welcome-text">Welcome to <br> Oxford 22-25's <br> Photo Gallery</div>
     <div id="instructions">
         <h1>Instructions</h1>
@@ -166,6 +180,7 @@
         <p>Move to screen edges to navigate between galleries</p>
         <button id="startButton">Enter Gallery</button>
     </div>
+
 
     <div id="gallery">
         <img id="character" src="https://drive.google.com/uc?export=view&id=1Iaww-GryMpqu-swUXvKd767JCGHeS2tl" alt="Moving Character">
@@ -187,11 +202,14 @@
         </div>
     </div>
 
+
     <div id="fullscreen-view">
         <img id="fullscreen-image" src="" alt="Fullscreen Image">
     </div>
 
+
     <div id="gallery-name"></div>
+
 
     <script>
         // Add this right after your <body> tag's script section starts
@@ -229,6 +247,7 @@
             4: "City Gallery"
         };
 
+
         const galleryImages = {
             0: {
                 top: ['H:/Nguyen Duy Hung/Bòfỏd/10/IMG_0057.JPG',
@@ -258,6 +277,7 @@
             }
         };
 
+
         document.getElementById('startButton').addEventListener('click', () => {
             document.getElementById('instructions').style.display = 'none';
             document.getElementById('gallery').style.display = 'block';
@@ -279,6 +299,7 @@
             }, 700);
             }, 3000);
         });
+
 
         document.addEventListener('keydown', (e) => {
             const char = document.getElementById('character');
@@ -310,6 +331,7 @@
             char.style.top = character.y + 'px';
         });
 
+
         function loadGallery(galleryIndex) {
             const topRow = document.querySelector('.gallery-row:first-child');
             const bottomRow = document.querySelector('.gallery-row:last-child');
@@ -318,24 +340,29 @@
                 return;
             }
 
+
             topRow.innerHTML = '';
             bottomRow.innerHTML = '';
+
 
             if (!galleryImages[galleryIndex]) {
                 console.error('Gallery images not found for index:', galleryIndex);
                 return;
             }
 
+
             galleryImages[galleryIndex].top.forEach(src => {
                 const img = createImage(src);
                 topRow.appendChild(img);
             });
+
 
             galleryImages[galleryIndex].bottom.forEach(src => {
                 const img = createImage(src);
                 bottomRow.appendChild(img);
             });
         }
+
 
         function createImage(src) {
             const img = document.createElement('img');
@@ -345,10 +372,12 @@
             return img;
         }
 
+
         function switchGallery(direction) {
     // Add debug logging
     console.log('switchGallery called with direction:', direction);
     console.log('Current gallery before switch:', currentGallery);
+
 
     if(direction === 'next' && currentGallery < totalGalleries - 1) {
         currentGallery++;
@@ -358,9 +387,11 @@
         character.x = window.innerWidth - 100;
     }
 
+
     // Add debug logging
     console.log('New gallery index:', currentGallery);
     console.log('Gallery name should be:', galleryNames[currentGallery]);
+
 
     loadGallery(currentGallery);
     const galleryNameElement = document.getElementById('gallery-name');
@@ -390,6 +421,7 @@
         console.error('Gallery name element not found!');
     }
 
+
     // Update character position
     const charElement = document.getElementById('character');
     if (charElement) {
@@ -397,11 +429,13 @@
     }
 }
 
+
         function checkImageCollision() {
     const images = document.getElementsByClassName('gallery-image');
     const charWidth = 100;
     const charHeight = 100;
     const collisionBuffer = 50; // Smaller detection area around the image
+
 
     for(let img of images) {
         const rect = img.getBoundingClientRect();
@@ -415,6 +449,7 @@
     }
 }
 
+
         function showFullscreen(src) {
             const fullscreenView = document.getElementById('fullscreen-view');
             const fullscreenImage = document.getElementById('fullscreen-image');
@@ -423,12 +458,14 @@
             fullscreenView.style.zIndex = '1000';
         }
 
+
         // Initial setup
         document.getElementById('character').style.left = character.x + 'px';
         document.getElementById('character').style.top = character.y + 'px';
     </script>
-  </body>
- </html>
+</body>
+</html>
+
 
 
 
