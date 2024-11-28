@@ -427,7 +427,7 @@
     if (charElement) {
         charElement.style.left = character.x + 'px';
     }
-}
+ }
 
 
         function checkImageCollision() {
@@ -447,7 +447,7 @@
             break;
         }
     }
-}
+ }
 
 
         function showFullscreen(src) {
