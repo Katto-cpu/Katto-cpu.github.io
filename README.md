@@ -25,7 +25,7 @@
         }
 
         #instructions {
-            position: center;
+            position: position;
             width: 100%;
             height: 100%;
             display: flex;
@@ -60,7 +60,7 @@
             display: none;
             width: 100vw;
             height: 100vh;
-            position: relative;
+            position: absolute;
         }
 
         .gallery-row {
