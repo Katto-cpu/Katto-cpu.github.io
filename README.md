@@ -1,6 +1,6 @@
-
-<html>
-<head>
+<!DOCTYPE html>
+ <html>
+ <head>
     <title>Interactive Gallery</title>
     <style>
         body {
@@ -169,8 +169,8 @@
 
 
     </style>
-</head>
-<body>
+ </head>
+ <body>
     <div id="welcome-text">Welcome to <br> Oxford 22-25's <br> Photo Gallery</div>
     <div id="instructions">
         <h1>Instructions</h1>
@@ -463,8 +463,8 @@
         document.getElementById('character').style.left = character.x + 'px';
         document.getElementById('character').style.top = character.y + 'px';
     </script>
-</body>
-</html>
+ </body>
+ </html>
 
 
 
